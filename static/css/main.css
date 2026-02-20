@@ -1,0 +1,138 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg: #222;
+    --nav-bg: #444;
+    --card-bg: #ffffff;
+    --footer-bg: #222;
+
+    /* Button Colors */
+    --btn-bg: #ffffff;
+    --btn-text: #333;
+}
+
+body.dark {
+    --bg-color: #121212;
+    --text-color: #e4e4e4;
+    --header-bg: #1f1f1f;
+    --nav-bg: #2a2a2a;
+    --card-bg: #1e1e1e;
+    --footer-bg: #1f1f1f;
+
+    /* Button Colors */
+    --btn-bg: #333333;
+    --btn-text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background: var(--header-bg);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    background: var(--nav-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+nav a:hover {
+    background: #666;
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 20px;
+    background: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hero {
+    background: url('https://picsum.photos/1200/400') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+}
+
+.card a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.about {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer {
+    background: var(--footer-bg);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+.toggle-btn {
+    background: transparent;
+    color: var(--btn-text);
+}
