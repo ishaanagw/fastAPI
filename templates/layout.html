@@ -28,6 +28,9 @@
         </nav>
 
         <div class="auth-section">
+            <button class="toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+                🌙
+            </button>
             {% if user %}
                 <div class="user-box">
                     <img src="{{ user.profile_image or '/static/images/default-avatar.png' }}"

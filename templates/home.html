@@ -1,37 +1,44 @@
 {% extends "layout.html" %}
 
-{% block title %}
-FastAPI Blog - Home
-{% endblock %}
+{% block title %} FastAPI Blog - Home {% endblock %}
 
 {% block hero %}
-<section class="hero" style="background: url('https://picsum.photos/1200/400') no-repeat center center/cover; height:400px; display:flex; align-items:center; justify-content:center; color:white; text-align:center;">
-    <h1 style="background: rgba(0,0,0,0.6); padding:20px; border-radius:10px;">
-        Welcome to My Blog
-    </h1>
+<section class="hero">
+    <h1>Welcome to My Blog</h1>
 </section>
 {% endblock %}
 
 {% block content %}
 
-<h2>Latest Posts</h2>
+<h2 style="margin-bottom: 20px;">Latest Posts</h2>
 
-<div class="posts" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
-
+<div class="posts">
     {% for post in posts %}
-    <div class="card" style="padding:20px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.content }}</p>
-        <a href="#">Read More →</a>
-    </div>
-    {% endfor %}
+    <article class="card blog-card">
+        
+        <div class="card-author">
+            <img src="{{ post.author_image or 'https://ui-avatars.com/api/?name=' + post.author }}" 
+                 alt="{{ post.author }}" class="author-avatar">
+            <div class="author-info">
+                <span class="author-name">{{ post.author_name }}</span>
+                <small class="post-meta">Feb 23, 2026</small>
+            </div>
+        </div>
 
+        <div class="card-body">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content[:120] }}...</p>
+            <a href="#">Read More →</a>
+        </div>
+        
+    </article>
+    {% endfor %}
 </div>
 
-<div class="about" style="padding:30px; border-radius:10px; margin-top:40px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+<div class="about">
     <h2>About Me</h2>
     <p>
-        Hi! I'm a passionate writer sharing my thoughts and experiences.
+        Hi! I'm Ishaan, a passionate writer sharing my thoughts and experiences.
         Thanks for visiting my blog!
     </p>
 </div>
