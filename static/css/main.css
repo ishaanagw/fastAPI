@@ -1,86 +1,158 @@
+/* ============================= */
+/* Root Theme Variables */
+/* ============================= */
+
 :root {
     --bg-color: #f4f4f4;
     --text-color: #333;
     --header-bg: #222;
-    --nav-bg: #444;
+    --nav-bg: #ffffff;
     --card-bg: #ffffff;
     --footer-bg: #222;
 
-    /* Button Colors */
-    --btn-bg: #ffffff;
-    --btn-text: #333;
+    --primary: #007bff;
+    --danger: #dc3545;
+
+    --border-color: #e5e5e5;
 }
 
 body.dark {
     --bg-color: #121212;
     --text-color: #e4e4e4;
     --header-bg: #1f1f1f;
-    --nav-bg: #2a2a2a;
+    --nav-bg: #1a1a1a;
     --card-bg: #1e1e1e;
     --footer-bg: #1f1f1f;
 
-    /* Button Colors */
-    --btn-bg: #333333;
-    --btn-text: #ffffff;
+    --border-color: #2a2a2a;
 }
+
+/* ============================= */
+/* Global Reset */
+/* ============================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: 0.3s ease;
 }
 
-header {
-    background: var(--header-bg);
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
+/* ============================= */
+/* Top Navigation Bar */
+/* ============================= */
 
-nav {
+.topbar {
     background: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.topbar-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
     position: relative;
 }
 
-nav a {
-    color: white;
-    padding: 14px 20px;
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* ============================= */
+/* Auth Section (Improved) */
+/* ============================= */
+
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Base Button */
+.btn {
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
-    display: block;
+    transition: all 0.25s ease;
 }
 
-nav a:hover {
-    background: #666;
+/* LOGIN (Subtle Button) */
+.login-btn {
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
 }
 
-.toggle-btn {
-    position: absolute;
-    right: 20px;
-    background: white;
+.login-btn:hover {
+    background: var(--card-bg);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* REGISTER (Primary CTA Button) */
+.register-btn {
+    background: var(--primary);
+    color: white;
     border: none;
-    padding: 6px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.25);
 }
+
+.register-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 123, 255, 0.35);
+}
+
+/* LOGOUT (Danger Button) */
+.logout-btn {
+    background: var(--danger);
+    color: white;
+    border: none;
+}
+
+/* ============================= */
+/* Hero Section */
+/* ============================= */
 
 .hero {
     background: url('https://picsum.photos/1200/400') no-repeat center center/cover;
     height: 400px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     color: white;
     text-align: center;
 }
@@ -90,6 +162,10 @@ nav a:hover {
     padding: 20px;
     border-radius: 10px;
 }
+
+/* ============================= */
+/* Main Content */
+/* ============================= */
 
 .container {
     width: 90%;
@@ -107,13 +183,17 @@ nav a:hover {
     background: var(--card-bg);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: background 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
 }
 
 .card a {
     text-decoration: none;
-    color: #007BFF;
+    color: var(--primary);
     font-weight: bold;
 }
 
@@ -122,8 +202,12 @@ nav a:hover {
     padding: 30px;
     border-radius: 10px;
     margin-top: 40px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
+/* ============================= */
+/* Footer */
+/* ============================= */
 
 footer {
     background: var(--footer-bg);
@@ -132,7 +216,16 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
+/* ============================= */
+/* Theme Toggle */
+/* ============================= */
+
 .toggle-btn {
     background: transparent;
-    color: var(--btn-text);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: var(--text-color);
 }
